@@ -24,7 +24,8 @@ clock = pygame.time.Clock()
 #1.사용자 게임 초기화(배경화면, 게임 이미지, 좌표, 속도, 폰트 등)
 
 #배경 만들기
-background = pygame.image.load("D:/Project_LPG/img/background.png")
+BLACK = (0, 0, 0)
+# background = pygame.image.load("D:/Project_LPG/img/background.png")
 
 #캐릭터 만들기
 character = pygame.image.load("D:/Project_LPG/img/people.png")
@@ -147,7 +148,8 @@ while running:
     sL_rect = sL.get_rect()
 
     #5.화면 그리기기
-    screen.blit(background, (0,0))
+    # screen.blit(background, (0,0))
+    screen.fill(BLACK)
     screen.blit(character,(character_x_pos,character_y_pos))
     screen.blit(snow3, (snow_x3_pos, snow_y3_pos))
     screen.blit(snow2, (snow_x2_pos, snow_y2_pos))
