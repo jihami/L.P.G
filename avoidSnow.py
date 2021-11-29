@@ -1,7 +1,10 @@
 import random
 import pygame
+from tkinter import *
+from tkinter import messagebox
 #############################################
-
+root= Tk()
+root.withdraw()
 #기본초기화(반드시 해야하는 것들)
 pygame.init() #초기화 (반드시 필요)
 
@@ -54,7 +57,13 @@ score = 0
 level = 1
 snow_speed = 10
 
+sound = pygame.mixer.Sound("D:/Project_LPG/bgm/bgm.mp3")
+sound.play(-1)
+score_sound = pygame.mixer.Sound("D:/Project_LPG/bgm/score.wav")
+
 running = True #게임이 진행중인가?
+def Click():
+    messagebox.showinfo("알림칭", "알림창")
 while running:
     dt = clock.tick(30) #보통은 30사용
     #2.이벤트 처리 (키보드, 마우스 등)
@@ -110,16 +119,13 @@ while running:
 
     if snow_y_pos == 0 :
         score += 1
-        print(snow_speed)
-        print(score)
+        score_sound.play()
     if snow_y2_pos == 0 :
         score += 1
-        print(snow_speed)
-        print(score)
+        score_sound.play()
     if snow_y3_pos == 0:
         score += 1
-        print(snow_speed)
-        print(score)
+        score_sound.play()
     if character_rect.colliderect(snow_rect) or character_rect.colliderect(snow2_rect) or character_rect.colliderect(snow3_rect): #충돌했는지
         print("충돌")
         running = False
@@ -150,5 +156,8 @@ while running:
 
     pygame.display.update() #게임화면 다시그리기 -> 안그리면 배경 적용 x
 
+def Click():
+    messagebox.showinfo("종료", f"점수 : {score} , 단계 : {level} \n 종료되었습니다.")
+Click()
 # pygame 종료
 pygame.quit()
