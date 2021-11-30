@@ -1,5 +1,7 @@
 import random
 import pygame
+import sqlite3
+import datetime as dt
 from tkinter import *
 from tkinter import messagebox
 root= Tk()
@@ -46,7 +48,7 @@ snow_speed = 10
 sound = pygame.mixer.Sound("D:/Project_LPG/bgm/bgm.mp3")
 sound.play(-1)
 score_sound = pygame.mixer.Sound("D:/Project_LPG/bgm/score.wav")
-
+today = str(dt.datetime.today().strftime('%Y-%m-%d'))
 running = True
 
 while running:
@@ -108,8 +110,7 @@ while running:
     if snow_y3_pos == 0:
         score += 1
         score_sound.play()
-    if character_rect.colliderect(snow_rect) or character_rect.colliderect(snow2_rect) or character_rect.colliderect(snow3_rect): #충돌했는지
-        print("충돌")
+    if character_rect.colliderect(snow_rect) or character_rect.colliderect(snow2_rect) or character_rect.colliderect(snow3_rect):
         running = False
 
     if 40 <= score :
@@ -136,6 +137,13 @@ while running:
     screen.blit(sL, sL_rect)
     pygame.display.update()
     clock.tick(30)
+con = sqlite3.connect("snowScore.db")
+cur = con.cursor()
+ins_sql = 'insert into snowScore values(?,?)'
+record = (today, score)
+cur.execute(ins_sql, record)
+con.commit()
+con.close()
 def message():
     messagebox.showinfo("종료", f"점수 : {score} , 단계 : {level} \n 종료되었습니다.")
 message()
