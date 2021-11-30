@@ -112,13 +112,13 @@ while running:
         print("충돌")
         running = False
 
-    if 25 <= score :
+    if 40 <= score :
         snow_speed = 25
         level = 5
-    elif 20 <= score:
+    elif 30 <= score:
         snow_speed = 19
         level = 4
-    elif 15 <= score:
+    elif 20 <= score:
         snow_speed = 16
         level = 3
     elif 10 <= score :
