@@ -1,5 +1,4 @@
 import sqlite3
-'''https://www.youtube.com/watch?v=AKSXM2BTwfY'''
 # 테이블 만들기
 # def createTable():
 #     con = sqlite3.connect("snowScore.db")
@@ -12,17 +11,16 @@ import sqlite3
 #     con.close()
 # if __name__ == '__main__':
 #     createTable()
-
 # insert
-def insert():
-    con = sqlite3.connect("snowScore.db")
-    cur = con.cursor()
-    cur.execute("insert into snowScore values(5)")
-    con.commit()
-    con.close()
-if __name__ == '__main__':
-    insert()
-
+# def insert():
+#     con = sqlite3.connect("snowScore.db")
+#     cur = con.cursor()
+#     cur.execute("insert into snowScore values(5)")
+#     cur.execute("insert into snowScore values(?)",(score,)) #변수 하나 입력
+#     con.commit()
+#     con.close()
+# if __name__ == '__main__':
+#     insert()
 # 출력
 # def printS():
 #     con = sqlite3.connect("snowScore.db")

@@ -91,10 +91,7 @@ def main():
         clock.tick(30)
     con = sqlite3.connect("brickScore.db")
     cur = con.cursor()
-    # cur.execute("insert into brickScore values('21-11-02',score)")
-    ins_sql = 'insert into brickScore values(?,?)'
-    record = (today,score)
-    cur.execute(ins_sql,record)
+    cur.execute("insert into brickScore values(?)", (score,))
     con.commit()
     con.close()
 if __name__ == "__main__":

@@ -1,12 +1,10 @@
 import sqlite3
-'''https://www.youtube.com/watch?v=AKSXM2BTwfY'''
 # 테이블 만들기
 # def createTable():
 #     con = sqlite3.connect("brickScore.db")
 #     cur = con.cursor()
 #     cur.execute('''
 #         create table brickScore(
-#         date text,
 #         point integer)
 #     ''')
 #     con.commit()
@@ -18,7 +16,8 @@ import sqlite3
 # def insert():
 #     con = sqlite3.connect("brickScore.db")
 #     cur = con.cursor()
-#     cur.execute("insert into brickScore values('21/08/21',100)")
+#     cur.execute("insert into brickScore values(100)")
+#     cur.execute("insert into brickScore values(?)", (score,)) #변수 하나 입력
 #     con.commit()
 #     con.close()
 # if __name__ == '__main__':
