@@ -2,7 +2,6 @@ import pygame
 import random
 import math
 import sqlite3
-import datetime as dt
 from pygame.locals import QUIT,KEYDOWN,K_LEFT,K_RIGHT,Rect
 from tkinter import *
 from tkinter import messagebox
@@ -38,7 +37,6 @@ def main():
     paddle = Block((200, 200, 0), Rect((screen_width / 2 - 50), 600, 100, 30))
     ball = Block((200, 200, 0), Rect((screen_width / 2 - 20), 600, 20, 20), 10)
     colors = [(255, 0, 0), (255, 150, 0), (255, 228, 0), (11, 201, 4),(0,84,255),(0,0,147),(201,0,167)]
-    today = str(dt.datetime.today().strftime('%Y-%m-%d'))
     for y,color in enumerate(colors,start=0):
         for x in range(0,6):
             block.append(Block(color, Rect(x * 80 + 12, y * 40 + 10, 55, 20)))
@@ -94,5 +92,6 @@ def main():
     cur.execute("insert into brickScore values(?)", (score,))
     con.commit()
     con.close()
+    pygame.quit()
 if __name__ == "__main__":
     main()

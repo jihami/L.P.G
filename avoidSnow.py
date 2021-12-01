@@ -138,13 +138,12 @@ def main():
         screen.blit(sL, sL_rect)
         pygame.display.update()
         clock.tick(30)
-    print(score)
     con = sqlite3.connect("snowScore.db")
     cur = con.cursor()
     cur.execute("insert into snowScore values(?)", (score,))
     con.commit()
     con.close()
-
+    pygame.quit()
 
 if __name__ == "__main__":
     main()

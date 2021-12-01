@@ -18,16 +18,18 @@ def main():
     btn1.place(x=150, y=230)
     btn2.place(x=140, y=330)
     btn3.place(x=180, y=430)
+    root.resizable(False, False)
     root.mainloop()
 def advoidSnow():
     import avoidSnow
-    avoidSnow
+    avoidSnow.main()
+    return
 def brickBreaker():
-    # import brickBreaker
-    # brickBreaker
-    pass
+    import brickBreaker
+    brickBreaker.main()
 def record():
-    pass
+    import record
+    record.main()
 if __name__ == "__main__":
     main()
 
