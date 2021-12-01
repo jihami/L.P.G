@@ -47,6 +47,12 @@ def main():
                 break
             else:
                 arrB.append("")
+    if len(arrS) < len(arrB):
+        while True:
+            if len(arrS) == len(arrB):
+                break
+            else:
+                arrS.append("")
     for i in range(len(arrS)):
         treeview.insert('', 'end', text=i+1, values=(arrS[i],arrB[i]))
     root.resizable(False, False)
