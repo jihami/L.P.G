@@ -41,9 +41,16 @@ def main():
     treeview.heading("brick", text="Brick Breaker", anchor="center")
 
     treeview.insert('', 'end', text="최고점수", values=(max(arrS), max(arrB)))
-    for i in range(len(arrS)-1):
+    if len(arrS) > len(arrB):
+        while True:
+            if len(arrS) == len(arrB):
+                break
+            else:
+                arrB.append("")
+    for i in range(len(arrS)):
         treeview.insert('', 'end', text=i+1, values=(arrS[i],arrB[i]))
-    print(arrS)
+    print(len(arrS))
+    print(len(arrB))
     print(arrB)
 
     root.mainloop()
