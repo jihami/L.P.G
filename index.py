@@ -1,43 +1,35 @@
-import pygame
-#기본초기화
-pygame.init()
-#화면 크기 설정, 타이틀
-screen_width = 480
-screen_height = 640
-screen = pygame.display.set_mode((screen_width, screen_height))
-pygame.display.set_caption("Loding Python Game")
-clock = pygame.time.Clock()
-# icon = pygame.image.load("<< <<image_Nmae>>.<<extension>> >>")
-# pygame.display.set_icon(icon)
+from tkinter import *
 
-#폰트
-game_font = pygame.font.Font(None, 80)
-black = (0,0,0)
-white = (255,255,255)
 
-#1.사용자 게임 초기화(배경화면, 게임 이미지, 좌표, 속도, 폰트 등)
-running = True
-while running:
-    dt = clock.tick(30)
-    #2.이벤트 처리 (키보드, 마우스 등)
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            running = False
+def main():
+    root = Tk()
+    root.title("Loading Python Game")
+    root.geometry("480x640")
+    # root.option_add("*Font","맑은고딕 25")
+    root.configure(bg="black")
 
-    #3.게임 캐릭터 위치 정의
+    label = Label(root, text="Loading Python Game", fg="white", bg="black", font=("font", 30, "bold"))
+    label.place(x=30, y=90)
 
-    #텍스트 직사각형 영역 설정
-    title = game_font.render("L . P . G", True, white)
-    title_Rect = title.get_rect()
-    title_Rect.centerx = round(screen_width/2)
-    title_Rect.centery = round(screen_height/2)
+    btn1 = Button(root, text="Avoid Snow", fg="black", bg="white", font=("font", 20, "bold"),command=advoidSnow)
+    btn2 = Button(root, text="Brick Breaker", fg="black", bg="white", font=("font", 20, "bold"),command=brickBreaker)
+    btn3 = Button(root, text="Record", fg="black", bg="white", font=("font", 20, "bold"),command=record)
 
-    #4.충돌처리
+    btn1.place(x=150, y=230)
+    btn2.place(x=140, y=330)
+    btn3.place(x=180, y=430)
+    root.mainloop()
+def advoidSnow():
+    import avoidSnow
+    avoidSnow
+def brickBreaker():
+    # import brickBreaker
+    # brickBreaker
+    pass
+def record():
+    pass
+if __name__ == "__main__":
+    main()
 
-    #5.화면 그리기기
-    screen.blit(title, title_Rect)
 
-    pygame.display.update() #게임화면 다시그리기 -> 안그리면 배경 적용 x
 
-# pygame 종료
-pygame.quit()
