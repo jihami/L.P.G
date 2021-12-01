@@ -6,7 +6,6 @@ import sqlite3
 #     cur = con.cursor()
 #     cur.execute('''
 #         create table snowScore(
-#         date text,
 #         point integer)
 #     ''')
 #     con.commit()
@@ -15,14 +14,14 @@ import sqlite3
 #     createTable()
 
 # insert
-# def insert():
-#     con = sqlite3.connect("snowScore.db")
-#     cur = con.cursor()
-#     cur.execute("insert into snowScore values('21/08/21',9)")
-#     con.commit()
-#     con.close()
-# if __name__ == '__main__':
-#     insert()
+def insert():
+    con = sqlite3.connect("snowScore.db")
+    cur = con.cursor()
+    cur.execute("insert into snowScore values(5)")
+    con.commit()
+    con.close()
+if __name__ == '__main__':
+    insert()
 
 # 출력
 # def printS():
